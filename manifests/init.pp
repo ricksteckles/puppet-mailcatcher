@@ -10,7 +10,7 @@ class mailcatcher {
   package { 'mailcatcher':
     provider => gem,
     ensure => present,
-    require => Package[sqlite3, libsqlite3-dev]
+    require => Package['sqlite3', 'libsqlite3-dev']
   }
 
   file { '/etc/init/mailcatcher.conf':
@@ -22,6 +22,6 @@ class mailcatcher {
     ensure   => running,
     provider => upstart,
     hasstatus => true,
-    require => [ File['mailcatcher.conf'], Package[mailcatcher] ]
+    require => [ File['mailcatcher.conf'], Package['mailcatcher'] ]
   }
 }
