@@ -10,7 +10,7 @@ class mailcatcher {
   package { 'mailcatcher':
     provider => gem,
     ensure => present,
-    require => Package['sqlite3', 'libsqlite3-dev']
+    require => Package['g++', 'make', 'sqlite3', 'libsqlite3-dev']
   }
 
   file { '/etc/init/mailcatcher.conf':
