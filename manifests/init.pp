@@ -1,4 +1,8 @@
 class mailcatcher {
+  package { 'g++':
+    ensure => present
+  }
+  
   package { 'sqlite3':
     ensure => present
   }
